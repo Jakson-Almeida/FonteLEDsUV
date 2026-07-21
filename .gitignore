@@ -4,3 +4,5 @@
 *.toc
 *.synctex.gz
 texput.*
+__pycache__/
+resistores_sugeridos.json

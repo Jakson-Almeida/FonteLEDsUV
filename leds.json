@@ -1,0 +1,68 @@
+{
+  "project": "Fonte LEDs UV — Laboratório Litel / UFJF",
+  "notes": "Specs dos SKUs adquiridos. Corrente_alvo no script usa fração da corrente_max para margem de segurança.",
+  "supplies_V": {
+    "5V": {
+      "voltage": 5.0,
+      "leds": ["LED-01", "LED-02", "LED-04"]
+    },
+    "12V": {
+      "voltage": 12.0,
+      "leds": ["LED-03"]
+    }
+  },
+  "leds": [
+    {
+      "id": "LED-01",
+      "name": "IR LCFOCUS 900 nm",
+      "wavelength_nm": "900-910",
+      "Vf_V": 3.7,
+      "Vf_min_V": 3.7,
+      "Vf_max_V": 3.7,
+      "I_max_mA": 700,
+      "P_W": 3.0,
+      "pcb_mm": 16,
+      "preferred_supply": "5V"
+    },
+    {
+      "id": "LED-02",
+      "name": "UVA HotRed bare chip",
+      "wavelength_nm": "395-400",
+      "Vf_V": 3.5,
+      "Vf_min_V": 3.2,
+      "Vf_max_V": 3.8,
+      "I_max_mA": 700,
+      "P_W": null,
+      "pcb_mm": null,
+      "preferred_supply": "5V"
+    },
+    {
+      "id": "LED-03",
+      "name": "UVA YJ-6565",
+      "wavelength_nm": "395-400",
+      "Vf_V": 11.0,
+      "Vf_min_V": 10.0,
+      "Vf_max_V": 12.0,
+      "I_max_mA": 300,
+      "I_min_mA": 200,
+      "P_W": null,
+      "beam_deg": 30,
+      "T_max_C": 75,
+      "preferred_supply": "12V"
+    },
+    {
+      "id": "LED-04",
+      "name": "UVC TAKEY 3838 260 nm",
+      "wavelength_nm": "260",
+      "Vf_V": 5.0,
+      "Vf_min_V": 5.0,
+      "Vf_max_V": 5.0,
+      "I_max_mA": 150,
+      "P_W": 1.0,
+      "pcb_mm": 20,
+      "beam_deg": 120,
+      "preferred_supply": "5V",
+      "note": "Vf ~ 5 V: com fonte de 5 V o headroom para resistor serie e nulo; preferir driver CC ou verificar Vf real."
+    }
+  ]
+}
