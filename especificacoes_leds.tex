@@ -1,0 +1,329 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+% siunitx removido (instalacao MiKTeX inconsistente)
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\geometry{margin=2.2cm}
+
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue!50!black,
+  pdftitle={Especificações de LEDs e Fotodetector --- Fonte Óptica UV},
+  pdfauthor={Laboratório Litel, UFJF}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Laboratório Litel --- UFJF}
+\fancyhead[R]{\small Fonte óptica / UV}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{%
+  Especificações técnicas dos componentes ópticos\\
+  \large LEDs emissores e fotodetector para fonte óptica\\
+  (exploração até o ultravioleta)}
+\author{Laboratório Litel\\Universidade Federal de Juiz de Fora (UFJF)\\Juiz de Fora --- MG}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Este documento organiza as especificações elétricas e ópticas dos componentes adquiridos para montagem e caracterização de uma \textbf{fonte óptica} no Laboratório Litel (UFJF), com ênfase na faixa ultravioleta (UVC/UVB/UVA), além de um emissor no infravermelho próximo e um fotodiodo de silício para medição. Os dados foram extraídos das páginas de produto (AliExpress e Mouser) e, no caso do fotodetector, do \emph{datasheet} do fabricante. Valores de anúncios genéricos (sem \emph{datasheet} formal) devem ser tratados como nominais e validados em bancada.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+%----------------------------------------------------------------------
+\section{Visão geral e cobertura espectral}
+%----------------------------------------------------------------------
+
+Os componentes cobrem, em conjunto, emissão desde o UVC profundo até o NIR, e detecção de $\sim$250\,nm a $\sim$1100\,nm.
+
+\begin{table}[ht]
+\centering
+\caption{Resumo dos componentes adquiridos.}
+\label{tab:resumo}
+\begin{tabular}{@{}clp{4.2cm}cc@{}}
+\toprule
+ID & Tipo & Faixa espectral nominal & Potência & Fonte \\
+\midrule
+LED-01 & Emissor IR & 680\,nm--1000\,nm & 1--5\,W & AliExpress \\
+LED-02 & Emissor UVA & 365\,nm--420\,nm & 3\,W & AliExpress \\
+LED-03 & Emissor UVC/UVA & 270\,nm--400\,nm & 4--10\,W & AliExpress \\
+LED-04 & Emissor UVC/UVB & 255\,nm/260\,nm/305\,nm & 1\,W & AliExpress \\
+PD-01 & Fotodiodo Si & 250\,nm--1100\,nm & --- & Mouser \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Notas de segurança.}
+Radiação UVC (100\,nm--280\,nm) e UVB são perigosas para pele e olhos. Operar com blindagem, óculos/EPIs adequados e, preferencialmente, monitoramento com o fotodiodo PD-01 fora do feixe direto. Não observar o LED UV ligado.
+
+\paragraph{Alimentação.}
+LEDs de potência exigem \textbf{fonte de corrente constante} (ou driver dedicado), dissipador térmico e pasta térmica. Não polarizar diretamente em tensão sem limitação de corrente.
+
+%----------------------------------------------------------------------
+\section{LED-01 --- Infravermelho (LCFOCUS)}
+%----------------------------------------------------------------------
+
+\begin{description}[style=nextline,leftmargin=2.2cm,font=\normalfont\bfseries]
+  \item[Identificação] AliExpress item \texttt{1005010154041315}
+  \item[Modelo] LC-3\&5IR-DD20
+  \item[Fabricante / loja] LCFOCUS Official Store
+  \item[Função] Emissor IR / vermelho profundo (não UV)
+  \item[Link] \url{https://pt.aliexpress.com/item/1005010154041315.html}
+\end{description}
+
+\begin{table}[ht]
+\centering
+\caption{Especificações LED-01 (conforme anúncio).}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parâmetro & Valor \\
+\midrule
+Comprimentos de onda disponíveis &
+  680, 740, 760, 800, 850, 880, 900, 940, 980, 1000\,nm \\
+Potência elétrica nominal & 1\,W / 3\,W / 5\,W \\
+Tensão (variantes de placa) & DC 3{,}7\,V / 5\,V / 12\,V / 24\,V \\
+Faixa de tensão (ficha do item) & 5--24\,V \\
+Corrente de operação & 600\,mA / 1000\,mA \\
+Tamanho do chip & $42\times42$\,mil \\
+PCB & Alumínio estrela, 16\,mm ou 20\,mm \\
+Construção & Dois fios de ouro; suporte de cobre \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Uso na fonte óptica.}
+Útil para calibração/comparação no NIR e testes do fotodiodo no IR. Não contribui para a faixa UV.
+
+%----------------------------------------------------------------------
+\section{LED-02 --- UVA / violeta 3\,W (HotRed)}
+%----------------------------------------------------------------------
+
+\begin{description}[style=nextline,leftmargin=2.2cm,font=\normalfont\bfseries]
+  \item[Identificação] AliExpress item \texttt{1005005641467698}
+  \item[Modelo] 3W UV LED Chip
+  \item[Fabricante / loja] HotRed Official Store
+  \item[Função] Emissor UVA / violeta próximo
+  \item[Link] \url{https://pt.aliexpress.com/item/1005005641467698.html}
+\end{description}
+
+\begin{table}[ht]
+\centering
+\caption{Especificações LED-02 (conforme anúncio).}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parâmetro & Valor \\
+\midrule
+Comprimentos de onda disponíveis &
+  365, 370, 380, 385, 395, 400, 405, 410, 420\,nm \\
+Potência elétrica nominal & 3\,W \\
+Tensão direta ($V_F$) & 3{,}0--3{,}6\,V \\
+Corrente de operação ($I_F$) & 600--700\,mA \\
+Montagem & Sem PCB / PCB 16\,mm / PCB 20\,mm \\
+Certificação (listada) & CCC \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Uso na fonte óptica.}
+Cobertura principal da faixa \textbf{UVA} (365\,nm--420\,nm): fluorescência, cura, espectroscopia e caracterização relativa do fotodiodo em 365\,nm.
+
+%----------------------------------------------------------------------
+\section{LED-03 --- UVC / UVA SMD 6565 (XIANGCLEAR / YIJIA)}
+%----------------------------------------------------------------------
+
+\begin{description}[style=nextline,leftmargin=2.2cm,font=\normalfont\bfseries]
+  \item[Identificação] AliExpress item \texttt{1005007280373439}
+  \item[Modelo] YJ-6565 UVA/UVC
+  \item[Fabricante / loja] YIJIA LED Store (marca listada: XIANGCLEAR)
+  \item[Função] Emissor UVC profundo e UVA em encapsulamento SMD 6565
+  \item[Link] \url{https://pt.aliexpress.com/item/1005007280373439.html}
+\end{description}
+
+\begin{table}[ht]
+\centering
+\caption{Especificações LED-03 (conforme anúncio).}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parâmetro & Valor \\
+\midrule
+Faixas de comprimento de onda &
+  270--280\,nm (UVC); 365--370\,nm; 395--400\,nm (UVA) \\
+Potência elétrica nominal & 4\,W / 10\,W \\
+Potência óptica (listada) & $\sim$100--130\,mW e $\sim$4--5\,W (conforme SKU) \\
+Tensão & DC 6{,}6--6{,}8\,V e 10--12\,V (conforme variante) \\
+Corrente & 1000--1400\,mA e 200--300\,mA (conforme variante) \\
+Encapsulamento & SMD $6{,}5\times6{,}5$\,mm (6565) \\
+PCB & 20\,mm \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Observação.}
+As correntes/tensões listadas correspondem a SKUs distintos (UVC vs.\ UVA de maior potência). Confirmar a variante física recebida antes de polarizar. O encapsulamento 6565 mede \textbf{6.5\,mm$\times$6.5\,mm} (não 65\,mm).
+
+\paragraph{Uso na fonte óptica.}
+Canal de maior interesse para \textbf{UVC germicida} ($\sim$275\,nm) e UVA de alta potência.
+
+%----------------------------------------------------------------------
+\section{LED-04 --- UVC / UVB 1\,W encapsulamento 3838 (TAKEY)}
+%----------------------------------------------------------------------
+
+\begin{description}[style=nextline,leftmargin=2.2cm,font=\normalfont\bfseries]
+  \item[Identificação] AliExpress item \texttt{1005008497791361}
+  \item[Modelo] 3838 UVLED
+  \item[Fabricante / loja] PTF52831030 Store (marca listada: TAKEY)
+  \item[Função] Emissor UVC / UVB de baixa potência
+  \item[Link] \url{https://pt.aliexpress.com/item/1005008497791361.html}
+\end{description}
+
+\begin{table}[ht]
+\centering
+\caption{Especificações LED-04 (conforme anúncio).}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Parâmetro & Valor \\
+\midrule
+Comprimentos de onda disponíveis & 255\,nm, 260\,nm, 305\,nm \\
+Potência elétrica nominal & 1\,W \\
+Tensão & 5--7\,V (título); ficha do item: $\sim$5\,V \\
+Corrente de operação & 150\,mA \\
+Ângulo de emissão & $60^\circ$ ou $120^\circ$ \\
+PCB & Cobre, 16\,mm ou 20\,mm \\
+Certificação (listada) & RoHS \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Uso na fonte óptica.}
+Extensão para UVC mais curto (255\,nm/260\,nm) e UVB (305\,nm), com corrente moderada --- adequado a testes iniciais com menor carga térmica.
+
+%----------------------------------------------------------------------
+\section{PD-01 --- Fotodiodo Marktech MT03-083}
+%----------------------------------------------------------------------
+
+\begin{description}[style=nextline,leftmargin=2.2cm,font=\normalfont\bfseries]
+  \item[Identificação] Mouser / Marktech Optoelectronics MT03-083
+  \item[Descrição interna] MTPS15.0PV2-4-5 (Series~4)
+  \item[Função] Detector (fotodiodo de Si) --- \emph{não é LED}
+  \item[Datasheet] \url{https://specs.marktechopto.com/pdf/products/datasheet/MT03-083.pdf}
+  \item[Link compra] \url{https://br.mouser.com/ProductDetail/Marktech-Optoelectronics/MT03-083}
+\end{description}
+
+\begin{table}[ht]
+\centering
+\caption{Especificações PD-01 (datasheet Marktech, $T_a=23\,^\circ\mathrm{C}$).}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Parâmetro & Símbolo & Valor \\
+\midrule
+Faixa de sensibilidade espectral & $\lambda$ & 250--1100\,nm \\
+Otimização / ênfase & --- & 300--560\,nm (UVA, azul, verde) \\
+Pico de sensibilidade (datasheet) & $\lambda_p$ & 950\,nm \\
+Área ativa & --- & 15\,mm$^2$ ($3{,}87\times3{,}87$\,mm) \\
+Encapsulamento & --- & TO-5 hermético, janela UV, 2 pinos \\
+Tensão reversa máxima & $V_R$ & 50\,V \\
+Corrente de escuro (típ./máx.) & $I_d$ & 0{,}5 / 2{,}0\,nA ($V_R=5\,V$) \\
+Responsividade @ 365\,nm & $R$ & 0.21\,A/W ($V_R=0$) \\
+Responsividade @ 633\,nm & $R$ & 0.40\,A/W ($V_R=0$) \\
+Tempo de resposta @ 635\,nm & $t_r$ & 25\,ns ($R_L=50\,\Omega$, $V_R=5\,V$) \\
+Capacitância de junção & $C_j$ & 190\,pF ($V_R=0$); 65\,pF típ.\ ($V_R=5\,V$) \\
+Resistência de shunt & $R_{sh}$ & 100\,M$\Omega$ mín.; 200\,M$\Omega$ típ.\ ($V_R=10\,mV$) \\
+Temperatura de operação & $T_{opr}$ & $-40$ a $+100\,^\circ\mathrm{C}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Uso na fonte óptica.}
+Fotodetector de área grande para medir potência relativa dos LEDs (especialmente UVA e visível/azul-verde). A janela transmite UV; a responsividade em 365\,nm está especificada no datasheet. Para UVC (255\,nm--280\,nm), a resposta existe na faixa 250--1100\,nm, mas deve ser calibrada experimentalmente (a eficiência quântica cai em comprimentos de onda curtos).
+
+%----------------------------------------------------------------------
+\section{Tabela comparativa --- tensão e corrente}
+%----------------------------------------------------------------------
+
+\begin{table}[ht]
+\centering
+\caption{Parâmetros elétricos prioritários para o driver da fonte óptica.}
+\label{tab:eletrico}
+\begin{tabular}{@{}llll@{}}
+\toprule
+ID & $V$ (nominal) & $I$ (operação) & Observação \\
+\midrule
+LED-01 & 3{,}7 / 5 / 12 / 24\,V & 600 / 1000\,mA & Depende do SKU (placa) \\
+LED-02 & 3{,}0--3{,}6\,V & 600--700\,mA & Driver CC recomendado \\
+LED-03 & 6{,}6--6{,}8\,V ou 10--12\,V & 0{,}2--1{,}4\,A & Confirmar variante UVC/UVA \\
+LED-04 & 5--7\,V & 150\,mA & Menor corrente \\
+PD-01 & $V_R$ até 50\,V & $I_d\sim$nA & Polarização reversa típica \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%----------------------------------------------------------------------
+\section{Tabela comparativa --- comprimento de onda}
+%----------------------------------------------------------------------
+
+\begin{table}[ht]
+\centering
+\caption{Cobertura espectral dos emissores e do detector.}
+\label{tab:lambda}
+\begin{tabular}{@{}llp{5.5cm}@{}}
+\toprule
+ID & Banda & $\lambda$ disponível / faixa \\
+\midrule
+LED-04 & UVC / UVB & 255, 260, 305\,nm \\
+LED-03 & UVC / UVA & 270--280; 365--370; 395--400\,nm \\
+LED-02 & UVA / violeta & 365--420\,nm (vários picos) \\
+LED-01 & Vermelho / NIR & 680--1000\,nm \\
+PD-01 & Detecção & 250--1100\,nm (ênfase 300--560\,nm) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+%----------------------------------------------------------------------
+\section{Recomendações para a montagem da fonte óptica}
+%----------------------------------------------------------------------
+
+\begin{enumerate}[leftmargin=*]
+  \item Separar canais por banda (UVC, UVA, IR) com dissipadores individuais e chaveamento/seleção óptica (filtros ou slots mecânicos).
+  \item Polarizar cada LED com driver de corrente constante ajustável; partir de corrente abaixo do nominal e monitorar temperatura.
+  \item Usar o MT03-083 (PD-01) com polarização reversa moderada (ex.: 5\,V) e amplificador de transimpedância para ler potência relativa.
+  \item Validar o pico espectral real com monocromador ou espectrômetro --- anúncios de AliExpress frequentemente agrupam vários SKUs no mesmo link.
+  \item Documentar qual SKU físico ($\lambda$, potência, PCB) foi soldado em cada posição da fonte.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\section{Fontes e limitações dos dados}
+%----------------------------------------------------------------------
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{LEDs AliExpress:} parâmetros extraídos do título, ficha do item e resumo da página do produto. Não há datasheet formal do fabricante para todas as variantes; trate $V_F$, $I_F$ e potência óptica como valores nominais até medição.
+  \item \textbf{MT03-083:} dados do datasheet oficial Marktech Optoelectronics (Series~4 Silicon Photodiode, rev.\ 2024-07).
+  \item Este relatório não substitui caracterização experimental no Litel.
+\end{itemize}
+
+\vspace{1.5em}
+\begin{center}
+\rule{0.4\textwidth}{0.4pt}\\[0.6em]
+{\small Laboratório Litel --- UFJF, Juiz de Fora}\\
+{\small Documento gerado para organização dos componentes da fonte óptica UV}
+\end{center}
+
+\end{document}
