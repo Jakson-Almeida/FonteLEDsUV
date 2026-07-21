@@ -96,7 +96,7 @@ de corrente.
 \begin{description}[style=nextline,leftmargin=2.2cm,font=\normalfont\bfseries]
   \item[Identificação] AliExpress item \texttt{1005010154041315}
   \item[Modelo / loja] LC-3\&5IR-DD20 / LCFOCUS Official Store
-  \item[SKU adquirido] IR 900--910\,nm (rótulo 900\,nm), 3{,}7\,V, 3\,W, PCB 16\,mm
+  \item[SKU adquirido] IR 900--910\,nm (rótulo 900\,nm), 3{,}7\,V, 700\,mA, 3\,W, PCB 16\,mm
   \item[Função] Emissor IR (não UV)
   \item[Link] \url{https://pt.aliexpress.com/item/1005010154041315.html}
 \end{description}
@@ -111,6 +111,7 @@ Parâmetro & Valor \\
 Comprimento de onda & 900--910\,nm (nominal 900\,nm) \\
 Potência elétrica nominal & 3\,W \\
 Tensão & 3{,}7\,V \\
+Corrente de operação & 700\,mA \\
 PCB & Alumínio estrela, 16\,mm \\
 \bottomrule
 \end{tabular}
@@ -198,15 +199,21 @@ intensidade direcional. Manter a temperatura de operação $\leq 75\,^\circ\math
 
 \begin{table}[ht]
 \centering
-\caption{Especificações LED-04 (SKU comprado).}
+\caption{Especificações LED-04 (SKU comprado + ficha do item).}
 \begin{tabular}{@{}ll@{}}
 \toprule
 Parâmetro & Valor \\
 \midrule
 Comprimento de onda & 260\,nm (UVC) \\
 Potência elétrica nominal & 1\,W \\
+Tensão & 5\,V \\
+Corrente de operação & 150\,mA \\
 Ângulo de emissão & $120^\circ$ \\
 PCB & 20\,mm \\
+Modelo & 3838 UVLED \\
+Marca & TAKEY \\
+Certificação (listada) & RoHS \\
+Origem & CN \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -269,10 +276,10 @@ experimentalmente.
 \toprule
 ID & $V$ (nominal) & $I$ (operação) & Observação \\
 \midrule
-LED-01 & 3{,}7\,V & --- (3\,W) & PCB 16\,mm \\
+LED-01 & 3{,}7\,V & 700\,mA & 3\,W; PCB 16\,mm \\
 LED-02 & 3{,}2--3{,}8\,V & 700\,mA & Sem PCB \\
 LED-03 & 10--12\,V & 200--300\,mA & Feixe $30^\circ$; $T\leq 75\,^\circ\mathrm{C}$ \\
-LED-04 & --- & --- (1\,W) & 260\,nm; PCB 20\,mm; $120^\circ$ \\
+LED-04 & 5\,V & 150\,mA & 1\,W; 260\,nm; PCB 20\,mm; $120^\circ$ \\
 PD-01 & $V_R$ até 50\,V & $I_d\sim$nA & Polarização reversa típica \\
 \bottomrule
 \end{tabular}
